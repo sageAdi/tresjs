@@ -29,7 +29,7 @@ onMounted(() => {
     <OrbitControls />
     <TresAxesHelper />
     <Stars :size="0.3" />
-    <BoxAnimation />
+    <SphereAnimation />
     <TresMesh :ref="boxRef" :position="[5, 0, 0]">
       <TresBoxGeometry :args="[1, 1, 1]" />
       <TresMeshBasicMaterial :color="state.boxColor" :wireframe="state.wireframe" />
