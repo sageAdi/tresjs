@@ -15,11 +15,21 @@ onBeforeRender(({ delta, elapsed }) => {
   }
 })
 
+const pbrTexture = await useTexture({
+  map: '/textures/door/color.jpg',
+  // displacementMap: '/textures/door/displacement.jpg',
+  // roughnessMap: '/textures/door/roughness.jpg',
+  // normalMap: '/textures/door/normal.jpg',
+  // ambientOcclusion: '/textures/door/ambientOcclusion.jpg',
+});
+
 </script>
 
 <template>
+
   <TresMesh ref="sphereRef" :position="[1, 0, 0]">
     <TresSphereGeometry :args="[1, 100, 100]" />
-    <TresMeshBasicMaterial :color="state.color" :wireframe="state.wireframe" />
+    <TresMeshStandardMaterial :wireframe="state.wireframe" :map="pbrTexture.map" />
   </TresMesh>
+
 </template>
