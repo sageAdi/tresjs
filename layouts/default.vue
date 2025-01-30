@@ -14,7 +14,7 @@
           link.label
         }}</NuxtLink>
     </nav>
-    <div class="flex-1 h-[calc(100dvh-4rem)] md:h-full p-4 overflow-hidden border border-red-500 flex flex-col gap-4">
+    <div class="flex-1 h-[calc(100dvh-4rem)] md:h-full p-4 overflow-hidden flex flex-col gap-4">
       <header class="flex gap-4 items-center border-b pb-2">
         <template v-if="navLinks.find(link => link.href === route.path)">
           <button :class="`hover:bg-gray-200 rounded-md p-2 flex items-center justify-center bg-gray-100`">
@@ -28,7 +28,7 @@
           </button>
         </template>
 
-        <h1 class="text-2xl font-bold">{{ allPages.find(page => page.href === route.path)?.label }}</h1>
+        <h1 class="text-2xl font-bold">{{ allRoutes.find(r => r.href === route.path)?.label }}</h1>
       </header>
       <div class="h-full overflow-y-auto">
         <slot />
@@ -39,17 +39,15 @@
 
 <script lang="ts" setup>
 const route = useRoute()
+const { routes: tresRoutes } = storeToRefs(useTresJsStore());
 const navLinks = [
   { href: '/tres', label: 'TresJS' },
   { href: '/demo', label: 'Demo' },
 ];
-const allPages = reactive([
-  { href: '/', label: 'Home' },
-  { href: '/tres', label: 'TresJS' },
-  { href: '/tres/box', label: 'Box' },
-  { href: '/tres/torus', label: 'Torus' },
-  { href: '/demo', label: 'Demo' },
-]);
+
+const allRoutes = computed(() => {
+  return [...navLinks, ...tresRoutes.value]
+})
 
 const isActive = (href: string) => {
   return route.path.startsWith(href);

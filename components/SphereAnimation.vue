@@ -17,10 +17,12 @@ onBeforeRender(({ delta, elapsed }) => {
 
 const pbrTexture = await useTexture({
   map: '/textures/door/color.jpg',
-  // displacementMap: '/textures/door/displacement.jpg',
-  // roughnessMap: '/textures/door/roughness.jpg',
-  // normalMap: '/textures/door/normal.jpg',
-  // ambientOcclusion: '/textures/door/ambientOcclusion.jpg',
+  // displacementMap: '/textures/door/height.jpg',
+  roughnessMap: '/textures/door/roughness.jpg',
+  normalMap: '/textures/door/normal.jpg',
+  aoMap: '/textures/door/ambientOcclusion.jpg',
+  metalnessMap: '/textures/door/metalness.jpg',
+  // alphaMap: '/textures/door/alpha.jpg',
 });
 
 </script>
@@ -29,7 +31,8 @@ const pbrTexture = await useTexture({
 
   <TresMesh ref="sphereRef" :position="[1, 0, 0]">
     <TresSphereGeometry :args="[1, 100, 100]" />
-    <TresMeshStandardMaterial :wireframe="state.wireframe" :map="pbrTexture.map" />
+    <TresMeshStandardMaterial v-bind="pbrTexture" :transparent="true" />
   </TresMesh>
+  
 
 </template>

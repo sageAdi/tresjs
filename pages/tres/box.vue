@@ -11,6 +11,7 @@
       <TresBoxGeometry :args="[1, 1, 1]" />
       <TresMeshNormalMaterial :color="state.boxColor" :wireframe="state.wireframe" />
     </TresMesh>
+    <TresAmbientLight :color="'#ffffff'" :intensity="1" />
   </TresCanvas>
 </template>
 

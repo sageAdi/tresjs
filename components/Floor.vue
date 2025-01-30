@@ -1,6 +1,6 @@
 <template>
   <!-- Floor -->
-  <TresMesh :rotation="[-Math.PI / 2, 0, 0]" :receiveShadow="true" >
+  <TresMesh :rotation="[-Math.PI / 2, 0, 0]" :receiveShadow="true">
     <TresPlaneGeometry :args="[floorMeasurements.width, floorMeasurements.height, 100, 100]" />
     <TresMeshStandardMaterial :alphaMap="texture.alphaMap" :transparent="true" :map="texture.map"
       :displacementMap="texture.displacementMap" :normalMap="texture.normalMap" :aoMap="texture.aoMap"
@@ -47,6 +47,7 @@ onMounted(() => {
   const gui = new GUI()
   gui.add(displacementScale, 'value').name('displacementScale').min(0).max(1).step(0.001)
   gui.add(displacementBias, 'value').name('displacementBias').min(-1).max(1).step(0.001)
+  gui.close()
 })
 
 </script>
