@@ -44,10 +44,10 @@ const displacementScale = ref(0.3)
 const displacementBias = ref(-0.17)
 
 onMounted(() => {
-  const gui = new GUI()
-  gui.add(displacementScale, 'value').name('displacementScale').min(0).max(1).step(0.001)
-  gui.add(displacementBias, 'value').name('displacementBias').min(-1).max(1).step(0.001)
-  gui.close()
+  // const gui = new GUI()
+  // gui.add(displacementScale, 'value').name('displacementScale').min(0).max(1).step(0.001)
+  // gui.add(displacementBias, 'value').name('displacementBias').min(-1).max(1).step(0.001)
+  // gui.close()
 })
 
 </script>

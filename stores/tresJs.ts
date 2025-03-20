@@ -18,6 +18,21 @@ export const useTresJsStore = defineStore("tresJs", {
         label: "Haunted House",
         href: "/tres/hauntedHouse",
       },
+      {
+        id: 3,
+        label: "Particles",
+        href: "/tres/particles",
+      },
+      {
+        id: 4,
+        label: "Galaxy Generator",
+        href: "/tres/galaxyGenerator",
+      },
+      {
+        id: 5,
+        label: "Scroll based animation",
+        href: "/tres/scrollBasedAnimation",
+      },
     ],
   }),
   actions: {},
